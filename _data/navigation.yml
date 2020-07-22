@@ -1,0 +1,13 @@
+- title: Home
+# - title: 🏠
+  url: /
+
+- title: Blog
+  url: /blog
+  # url: Is it possible to put this all under blog.thinkmeta.me ?
+
+- title: About
+  url: /about
+
+# - title: 🔍
+#   url: search.md
