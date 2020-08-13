@@ -24,15 +24,39 @@ email:
 #   Write an awesome description for your new site here. You can edit this
 #   line in _config.yml. It will appear in your document head meta (for
 #   Google search results) and in your feed.xml site description.
-description: Personal web page and blog. - ak TODO
+description: Akshay Desai's personal web page and blog. #I write about blah blah...
+
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://knuthingmuch.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://thinkmeta.me" # the base hostname & protocol for your site, e.g. http://example.com
+locale: "en-GB"
+timezone: "Asia/Kolkata"
+logo: logo.png
+skin: "/assets/css/skins/default.css" # default, light, dark
+
+read_time: true
+words_per_minute: 200
+
+# Site Author Info
 twitter_username: akaydesai
 github_username:  knuthingmuch
-locale: "en-GB"
-author: "Akshay Desai"
-# logo:
-# skin: "/assets/css/skins/dark.css"
+author:
+  name: "Akshay Desai"
+  picture: /ak_pic.png
+  email: placeholder@gmail.com
+  links: 
+  # <TODO> Add stackexchange network/single account?
+    - title: Twitter
+      url: https://twitter.com/akaydesai
+      icon: fab fa-twitter-square
+    - title: GitHub
+      url: https://github.com/knuthingmuch
+      icon: fab fa-github-square
+    - title: Email
+      url: "mailto: placeholder@gmail.com"
+      icon: far fa-envelope
+    # - title: LinkedIn
+    #   url: https://www.linkedin.com/in/akshay-naik-4aa714159/
+    #   icon: fab fa-linkedin-in
 
 footer_links:
   - title: Twitter
@@ -41,12 +65,63 @@ footer_links:
   - title: GitHub
     url: https://github.com/knuthingmuch
     icon: fab fa-github-square
+  - title: Email
+    url: "mailto: placeholder@gmail.com"
+    icon: far fa-envelope
+  # - title: LinkedIn
+  #   url: https://www.linkedin.com/in/akshay-naik-4aa714159/
+  #   icon: fab fa-linkedin-in
+
+# DEFAULT GLOBAL PERMALINK
+permalink: /:title:output_ext
+
+# COLLECTIONS: posts is hard-coded, define the rest.
+collections:
+  posts:
+    # Removed '/:categories' from default permalink schema, so that links don't break on re-categorization.
+    permalink: /blog/:year/:month/:title:output_ext
+  test_coll:
+    output: true
+    permalink: /:collection/:title:output_ext
+
+# Front Matter Defaults
+defaults:
+  # Post defaults
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      # Can't set permalink value here, set in collection definition.
+      layout: post
+      share: true
 
 # Build settings
-remote_theme: "mmistakes/so-simple-theme@3.2.0"
-incremental: true
+remote_theme: "mmistakes/so-simple-theme" # Use latest, @3.2.0 release doesn't have MathJax support.
+markdown: kramdown
+mathjax:
+  enable: true
+  combo: "tex-svg"
+  # tags: "ams"
+# feed:
+  # path: atom.xml
+incremental: false #Experimental feature, check out later.
 plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
   - jekyll-feed
+  - jekyll-paginate
+
+# Pagination - https://jekyllrb.com/docs/pagination/
+# DISABLED. Reason: Insists on using index html file as template.
+# paginate: 10
+# paginate_path: /page:num/
+
+# Search
+search_full_content: false
+
+# Taxonomy pages
+category_archive_path: "/categories/#"
+tag_archive_path: "/tags/#"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
