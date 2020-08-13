@@ -96,7 +96,7 @@ defaults:
       share: true
 
 # Build settings
-remote_theme: "mmistakes/so-simple-theme" # Use latest, @3.2.0 release doesn't have MathJax support.
+remote_theme: "mmistakes/so-simple-theme@3.2.0" # Use latest, @3.2.0 release doesn't have MathJax3 support.
 markdown: kramdown
 mathjax:
   enable: true
